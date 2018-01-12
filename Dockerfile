@@ -2,17 +2,16 @@
 
 FROM centos:7
 
-RUN yum -y update
-RUN yum -y install epel-release
-RUN yum -y install bind-utils git python-pip
+RUN yum -y update && \
+    yum -y install epel-release && \
+    yum -y install bind-utils git python-pip && \
+    mkdir /etc/data_insights
 
-RUN git clone https://github.com/Isilon/isilon_data_insights_connector.git idic/
+RUN git clone https://github.com/Isilon/isilon_data_insights_connector.git /idic
 
-RUN mkdir /etc/data_insights
+WORKDIR /idic
 
-RUN cd idic/ && ./setup_venv.sh
+RUN ./setup_venv.sh && \
+    touch isi_data_insights_d.log
 
-VOLUME ["/etc/data_insights"]
-
-ENTRYPOINT ["/etc/data_insights/start-sdk.sh"]
-
+ENTRYPOINT [". .venv/bin/activate", "/idic/isi_data_insights_d.py -c /etc/data_insights/isi_data_insights_d.cfg start", "tail -F /idic/isi_data_insights_d.log"]
