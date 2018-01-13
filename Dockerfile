@@ -14,4 +14,6 @@ WORKDIR /idic
 RUN ./setup_venv.sh && \
     touch isi_data_insights_d.log
 
-ENTRYPOINT [". .venv/bin/activate", "/idic/isi_data_insights_d.py -c /etc/data_insights/isi_data_insights_d.cfg start", "tail -F /idic/isi_data_insights_d.log"]
+COPY ./start-sdk.sh ./
+
+ENTRYPOINT ["./start-sdk.sh"]
