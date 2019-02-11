@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:2334",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -16,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 9,
-  "iteration": 1528247810434,
+  "iteration": 1549041913951,
   "links": [],
   "panels": [
     {
@@ -137,6 +135,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Protocol Latency by Node- $cluster",
       "tooltip": {
@@ -172,7 +171,11 @@
           "min": null,
           "show": false
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -430,6 +433,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "CPU Utilization by Node- $cluster",
       "tooltip": {
@@ -465,7 +469,11 @@
           "min": "0",
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -513,8 +521,8 @@
       "scopedVars": {
         "cluster": {
           "selected": true,
-          "text": "NorCal455",
-          "value": "NorCal455"
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
         }
       },
       "seriesOverrides": [],
@@ -642,6 +650,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Per Node NFS Connections - $cluster",
       "tooltip": {
@@ -675,7 +684,11 @@
           "min": null,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -726,8 +739,8 @@
       "scopedVars": {
         "cluster": {
           "selected": true,
-          "text": "NorCal455",
-          "value": "NorCal455"
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
         }
       },
       "seriesOverrides": [],
@@ -796,6 +809,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Operation Counts Per Second  by Node - $cluster",
       "tooltip": {
@@ -831,7 +845,11 @@
           "min": null,
           "show": false
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -999,6 +1017,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Operation Mix by Node - $cluster",
       "tooltip": {
@@ -1034,7 +1053,11 @@
           "min": null,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -1159,6 +1182,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Operation Latency by Node - $cluster",
       "tooltip": {
@@ -1194,24 +1218,30 @@
           "min": null,
           "show": false
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "10s",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "isilon"
+    "isilon",
+    "node"
   ],
   "templating": {
     "list": [
       {
         "allValue": null,
         "current": {
-          "text": "NorCal455",
-          "value": "NorCal455"
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
         },
         "datasource": "isi_data_insights",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Cluster",
@@ -1221,6 +1251,7 @@
         "query": "show tag values with key = \"cluster\"",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
@@ -1237,6 +1268,7 @@
           ]
         },
         "datasource": "isi_data_insights",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Node",
@@ -1246,6 +1278,7 @@
         "query": "show tag values with key = \"node\" where \"cluster\" =~ /^$cluster/",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
@@ -1278,6 +1311,7 @@
           }
         ],
         "query": "nfs,smb2",
+        "skipUrlSync": false,
         "type": "custom"
       }
     ]
@@ -1314,5 +1348,5 @@
   "timezone": "browser",
   "title": "Per Node Protocol Stats",
   "uid": "ACvonpZiz",
-  "version": 25
+  "version": 1
 }

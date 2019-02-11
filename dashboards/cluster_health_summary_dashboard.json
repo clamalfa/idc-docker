@@ -12,43 +12,88 @@
       }
     ]
   },
-  "description": "",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 55,
-  "iteration": 1549316219533,
+  "id": 70,
+  "iteration": 1549310376949,
   "links": [],
   "panels": [
     {
-      "content": "# These stats are not currently active by default.\r\n\r\nThey are here to serve as an example of how to use the derived stats functionality. \r\nSee the comments at the bottom of the isi_data_insights_d.cfg file for additional information on how to configure and use these metrics",
-      "description": "",
+      "collapsed": true,
       "gridPos": {
-        "h": 3,
+        "h": 1,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 41,
-      "links": [],
-      "mode": "markdown",
-      "title": "Cluster Concurrency Dashboard Note:",
-      "type": "text"
+      "id": 214,
+      "panels": [
+        {
+          "content": "* Use the pull down at the very top left of the page (next to the spiral icon) to select which dashboard you want to look at.\n* Use the cluster and other pull downs to select the cluster and protocol of interest.\n* Use the pull downs at the top right to select a specific time period of interest.\n* Note that by default the dates and time displayed are in your browser�s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n* You can hide rows using the green slide-out tab to the left of each chart.\n* If there is a legend displayed you can click on elements within it to hide or display items, etc.\n* Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n* There is no significance in whether things are displayed as lines, bars or points - we have used whatever seems to be clearest for the data.\n",
+          "editable": true,
+          "error": false,
+          "gridPos": {
+            "h": 7,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 18,
+          "isNew": true,
+          "links": [],
+          "mode": "markdown",
+          "title": "Welcome to the Isilon Cluster Summary Dashboard",
+          "type": "text"
+        }
+      ],
+      "title": "Welcome to the Isilon Cluster Summary Dashboard",
+      "type": "row"
     },
     {
-      "content": "<a target=\"_blank\" href=\"https://$cluster:8080/\">WebUI  for $cluster</a><br>\n<a href=/dashboard/db/isilon-data-insights-cluster-summary>Cluster list</a>\n",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 215,
+      "panels": [],
+      "repeat": "cluster",
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
+      "title": "$cluster",
+      "type": "row"
+    },
+    {
+      "content": "<a href=\"/dashboard/db/isilon-data-insights-cluster-detail?var-cluster=$cluster\">Detail dashboard</a><br>\n<a target=\"_blank\" href=\"https://$cluster:8080/\">WebUI for $cluster</a>",
       "editable": true,
       "error": false,
       "gridPos": {
         "h": 4,
         "w": 2,
         "x": 0,
-        "y": 3
+        "y": 2
       },
-      "id": 22,
+      "id": 35,
+      "isNew": true,
       "links": [
         {
-          "dashboard": "",
+          "dashUri": "db/isilon-data-insights",
+          "dashboard": "Isilon Data Insights",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": false,
+          "title": "Detail dashboard for $cluster",
+          "type": "dashboard"
+        },
+        {
           "targetBlank": true,
           "title": "WebUI",
           "type": "absolute",
@@ -56,7 +101,16 @@
         }
       ],
       "mode": "html",
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "title": "$cluster",
+      "transparent": true,
       "type": "text"
     },
     {
@@ -77,19 +131,20 @@
         "minValue": 0,
         "show": false,
         "thresholdLabels": false,
-        "thresholdMarkers": true
+        "thresholdMarkers": false
       },
       "gridPos": {
         "h": 4,
         "w": 2,
         "x": 2,
-        "y": 3
+        "y": 2
       },
-      "id": 32,
+      "height": "",
+      "id": 207,
       "interval": null,
+      "isNew": true,
       "links": [
         {
-          "dashboard": "https://$cluster:8080/",
           "targetBlank": true,
           "title": "WebUI for $cluster",
           "type": "absolute",
@@ -121,6 +176,14 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
@@ -183,7 +246,7 @@
           "value": ""
         }
       ],
-      "valueName": "avg"
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -209,13 +272,13 @@
         "h": 4,
         "w": 2,
         "x": 4,
-        "y": 3
+        "y": 2
       },
       "id": 13,
       "interval": null,
+      "isNew": true,
       "links": [
         {
-          "dashboard": "https://$cluster:8080/",
           "targetBlank": true,
           "title": "WebUI for $cluster",
           "type": "absolute",
@@ -247,11 +310,19 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": true
+        "show": false
       },
       "tableColumn": "",
       "targets": [
@@ -285,7 +356,7 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "max"
               }
             ]
           ],
@@ -309,7 +380,7 @@
           "value": ""
         }
       ],
-      "valueName": "avg"
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -335,10 +406,11 @@
         "h": 4,
         "w": 2,
         "x": 6,
-        "y": 3
+        "y": 2
       },
       "id": 14,
       "interval": null,
+      "isNew": true,
       "links": [
         {
           "targetBlank": true,
@@ -382,6 +454,14 @@
           "to": "5"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
@@ -481,11 +561,22 @@
         "h": 4,
         "w": 2,
         "x": 8,
-        "y": 3
+        "y": 2
       },
       "id": 8,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": false,
+          "title": "Detail dashboard for $cluster",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 2,
       "mappingTypes": [
         {
@@ -505,6 +596,14 @@
       "prefix": "",
       "prefixFontSize": "50%",
       "rangeMaps": [],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -601,11 +700,22 @@
         "h": 4,
         "w": 2,
         "x": 10,
-        "y": 3
+        "y": 2
       },
       "id": 9,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "targetBlank": false,
+          "title": "Detail dashboard for $cluster",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 2,
       "mappingTypes": [
         {
@@ -625,6 +735,14 @@
       "prefix": "",
       "prefixFontSize": "50%",
       "rangeMaps": [],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -679,7 +797,7 @@
         }
       ],
       "thresholds": "80,90",
-      "title": "Cluster Capacity Utilization",
+      "title": "Cluster Capacity",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -696,9 +814,9 @@
       "colorBackground": false,
       "colorValue": false,
       "colors": [
-        "rgba(50, 172, 45, 0.97)",
+        "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
-        "rgba(245, 54, 54, 0.9)"
+        "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "isi_data_insights",
       "editable": true,
@@ -715,11 +833,21 @@
         "h": 4,
         "w": 2,
         "x": 12,
-        "y": 3
+        "y": 2
       },
-      "id": 33,
+      "id": 208,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "title": "Isilon Data Insights Cluster Detail",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -745,6 +873,14 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -769,9 +905,9 @@
               "type": "fill"
             }
           ],
-          "measurement": "cluster.protostats.nfs.total_time_avg",
+          "measurement": "cluster.protostats.nfs.total",
           "policy": "default",
-          "query": "SELECT mean(\"in_rate\") + mean(\"out_rate\") FROM \"cluster.protostats.nfs.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
+          "query": "SELECT mean(\"in_rate\") +mean(\"out_rate\") FROM \"cluster.protostats.nfs.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -779,19 +915,13 @@
             [
               {
                 "params": [
-                  "value"
+                  "op_count"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "/1000"
-                ],
-                "type": "math"
+                "type": "mean"
               }
             ]
           ],
@@ -804,7 +934,7 @@
           ]
         }
       ],
-      "thresholds": "10,25",
+      "thresholds": "",
       "title": "NFSv3 Throughput",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -822,9 +952,9 @@
       "colorBackground": false,
       "colorValue": false,
       "colors": [
-        "rgba(50, 172, 45, 0.97)",
+        "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
-        "rgba(245, 54, 54, 0.9)"
+        "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "isi_data_insights",
       "editable": true,
@@ -841,11 +971,21 @@
         "h": 4,
         "w": 2,
         "x": 14,
-        "y": 3
+        "y": 2
       },
-      "id": 20,
+      "id": 209,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "title": "Isilon Data Insights Cluster Detail",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -871,6 +1011,14 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -895,29 +1043,21 @@
               "type": "fill"
             }
           ],
-          "measurement": "cluster.protostats.nfs.total_time_avg",
+          "measurement": "cluster.protostats.nfs.total",
           "policy": "default",
-          "query": "SELECT mean(\"op_rate\") FROM \"cluster.protostats.nfs.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "op_rate"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "/1000"
-                ],
-                "type": "math"
+                "type": "mean"
               }
             ]
           ],
@@ -930,7 +1070,7 @@
           ]
         }
       ],
-      "thresholds": "10,25",
+      "thresholds": "",
       "title": "NFSv3 Op/s",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -961,17 +1101,27 @@
         "minValue": 0,
         "show": false,
         "thresholdLabels": false,
-        "thresholdMarkers": true
+        "thresholdMarkers": false
       },
       "gridPos": {
         "h": 4,
         "w": 2,
         "x": 16,
-        "y": 3
+        "y": 2
       },
-      "id": 23,
+      "id": 210,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "title": "Isilon Data Insights Cluster Detail",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -997,6 +1147,14 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -1021,27 +1179,25 @@
               "type": "fill"
             }
           ],
-          "measurement": "cluster.protostats.nfs.total_time_avg",
+          "measurement": "cluster.protostats.nfs.total",
           "policy": "default",
-          "query": "SELECT mean(\"time_avg\") /1000 FROM \"cluster.protostats.nfs.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "time_avg"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
+                "type": "mean"
               },
               {
                 "params": [
-                  "/1000"
+                  " / 1000"
                 ],
                 "type": "math"
               }
@@ -1074,9 +1230,9 @@
       "colorBackground": false,
       "colorValue": false,
       "colors": [
-        "rgba(50, 172, 45, 0.97)",
+        "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
-        "rgba(245, 54, 54, 0.9)"
+        "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "isi_data_insights",
       "editable": true,
@@ -1093,11 +1249,21 @@
         "h": 4,
         "w": 2,
         "x": 18,
-        "y": 3
+        "y": 2
       },
-      "id": 34,
+      "id": 211,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "title": "Isilon Data Insights Cluster Detail",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -1123,6 +1289,14 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -1147,9 +1321,9 @@
               "type": "fill"
             }
           ],
-          "measurement": "cluster.protostats.nfs.total_time_avg",
+          "measurement": "cluster.protostats.nfs.total",
           "policy": "default",
-          "query": "SELECT mean(\"in_rate\") + mean(\"out_rate\") FROM \"cluster.protostats.smb2.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
+          "query": "SELECT mean(\"in_rate\") +mean(\"out_rate\") FROM \"cluster.protostats.smb2.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1157,19 +1331,13 @@
             [
               {
                 "params": [
-                  "value"
+                  "op_count"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "/1000"
-                ],
-                "type": "math"
+                "type": "mean"
               }
             ]
           ],
@@ -1182,7 +1350,7 @@
           ]
         }
       ],
-      "thresholds": "10,25",
+      "thresholds": "",
       "title": "SMB2 Throughput",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -1200,9 +1368,9 @@
       "colorBackground": false,
       "colorValue": false,
       "colors": [
-        "rgba(50, 172, 45, 0.97)",
+        "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
-        "rgba(245, 54, 54, 0.9)"
+        "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "isi_data_insights",
       "editable": true,
@@ -1219,11 +1387,21 @@
         "h": 4,
         "w": 2,
         "x": 20,
-        "y": 3
+        "y": 2
       },
-      "id": 21,
+      "id": 212,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "title": "Isilon Data Insights Cluster Detail",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -1249,6 +1427,14 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -1273,29 +1459,21 @@
               "type": "fill"
             }
           ],
-          "measurement": "cluster.protostats.nfs.total_time_avg",
+          "measurement": "cluster.protostats.smb2.total",
           "policy": "default",
-          "query": "SELECT mean(\"op_rate\") FROM \"cluster.protostats.smb2.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "op_rate"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "/1000"
-                ],
-                "type": "math"
+                "type": "mean"
               }
             ]
           ],
@@ -1308,7 +1486,7 @@
           ]
         }
       ],
-      "thresholds": "10,25",
+      "thresholds": "",
       "title": "SMB2 Op/s",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -1339,17 +1517,27 @@
         "minValue": 0,
         "show": false,
         "thresholdLabels": false,
-        "thresholdMarkers": true
+        "thresholdMarkers": false
       },
       "gridPos": {
         "h": 4,
         "w": 2,
         "x": 22,
-        "y": 3
+        "y": 2
       },
-      "id": 24,
+      "id": 213,
       "interval": null,
-      "links": [],
+      "isNew": true,
+      "links": [
+        {
+          "dashUri": "db/isilon-data-insights-cluster-detail",
+          "dashboard": "Isilon Data Insights Cluster Detail",
+          "includeVars": true,
+          "keepTime": true,
+          "title": "Isilon Data Insights Cluster Detail",
+          "type": "dashboard"
+        }
+      ],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -1375,6 +1563,14 @@
           "to": "null"
         }
       ],
+      "repeatIteration": 1476718550844,
+      "scopedVars": {
+        "cluster": {
+          "selected": false,
+          "text": "sf-isilon01",
+          "value": "sf-isilon01"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": true,
@@ -1399,27 +1595,25 @@
               "type": "fill"
             }
           ],
-          "measurement": "cluster.protostats.nfs.total_time_avg",
+          "measurement": "cluster.protostats.smb2.total",
           "policy": "default",
-          "query": "SELECT mean(\"time_avg\") /1000 FROM \"cluster.protostats.smb2.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "time_avg"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "max"
+                "type": "mean"
               },
               {
                 "params": [
-                  "/1000"
+                  " / 1000"
                 ],
                 "type": "math"
               }
@@ -1446,734 +1640,6 @@
         }
       ],
       "valueName": "current"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "isi_data_insights",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 7
-      },
-      "id": 36,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Cluster Average Disk Latency Percent Change",
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "IFS Concurrency",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.ifs.concurrency",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        },
-        {
-          "alias": "Cluster Average Disk Latency Percent Change",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.disk.iosched.latency.avg.avg.percentchange",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Cluster IFS Concurrency",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "-15000",
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "isi_data_insights",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 14
-      },
-      "id": 37,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
-      "targets": [
-        {
-          "alias": "Cluster Average Disk Latency",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.disk.iosched.latency.avg.avg",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        },
-        {
-          "alias": "Node $tag_node Average Disk Latency",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "node"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "node.disk.iosched.latency.avg",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Disk Latency",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "isi_data_insights",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 14
-      },
-      "id": 38,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "Cluster Average Disk Latency Percent Change",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.disk.iosched.latency.avg.avg.percentchange",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Cluster Average Disk Latency Percent Change",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "isi_data_insights",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 21
-      },
-      "id": 39,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "Cluster IFS Input OPs Count",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.ifs.ops.in.sum",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        },
-        {
-          "alias": "Cluster IFS Output OPs Count",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.ifs.ops.out.sum",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        },
-        {
-          "alias": "Node $tag_node IFS Input OPs Count",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "node"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "node.ifs.ops.in",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        },
-        {
-          "alias": "Node $tag_node IFS Output OPs Count",
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "node"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "node.ifs.ops.out",
-          "policy": "default",
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "IFS OP Counts",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
     }
   ],
   "refresh": "30s",
@@ -2189,15 +1655,15 @@
         "allFormat": "regex values",
         "allValue": null,
         "current": {
-          "text": "sf-isilon01",
-          "value": "sf-isilon01"
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": "isi_data_insights",
         "definition": "",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "Cluster",
-        "multi": false,
+        "multi": true,
         "multiFormat": "glob",
         "name": "cluster",
         "options": [],
@@ -2206,16 +1672,16 @@
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
-        "tagValuesQuery": null,
+        "tagValuesQuery": "",
         "tags": [],
-        "tagsQuery": null,
+        "tagsQuery": "",
         "type": "query",
         "useTags": false
       }
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -2245,7 +1711,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Cluster Concurrency  Dashboards",
-  "uid": "000000005",
-  "version": 1
+  "title": "Cluster Health Summary Dashboard",
+  "uid": "000000002",
+  "version": 2
 }

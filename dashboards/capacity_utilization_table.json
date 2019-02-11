@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:909",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -17,13 +16,12 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1528247577076,
+  "id": 54,
+  "iteration": 1549307164010,
   "links": [],
   "panels": [
     {
       "columns": [],
-      "datasource": null,
       "editable": true,
       "error": false,
       "fontSize": "100%",
@@ -93,6 +91,7 @@
             }
           ],
           "measurement": "ifs.percent.avail",
+          "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT 100.0 - last(\"value\") as utilization FROM \"ifs.percent.avail\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval), \"cluster\" fill(none)",
           "rawQuery": true,
@@ -136,7 +135,8 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "isilon"
+    "isilon",
+    "cluster"
   ],
   "templating": {
     "list": [
@@ -147,6 +147,7 @@
           "value": "$__all"
         },
         "datasource": "isi_data_insights",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Cluster",
@@ -156,6 +157,7 @@
         "query": "show tag values with key = \"cluster\"",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
@@ -195,7 +197,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Cluster Capacity Utilization Table",
+  "title": "Capacity Utilization Table",
   "uid": "000000004",
-  "version": 2
+  "version": 1
 }
