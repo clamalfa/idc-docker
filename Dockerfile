@@ -16,4 +16,6 @@ RUN ./setup_venv.sh && \
 
 COPY ./start-sdk.sh ./
 
+COPY ./dashboards/* /var/lib/grafana/dashboards
+
 ENTRYPOINT ["./start-sdk.sh"]
